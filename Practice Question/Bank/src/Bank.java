@@ -4,7 +4,7 @@ class BankOperations {
     String accno;
     String name;
     String type;
-    long balance;
+    double balance;
     Scanner sc = new Scanner(System.in);
 
     //method to open new account  
@@ -29,17 +29,17 @@ class BankOperations {
 
     //method to deposit money  
     public void deposit() {
-        long amt;
+        double amt;
         System.out.println("Enter the amount you want to deposit: ");
-        amt = sc.nextLong();
+        amt = sc.nextDouble();
         balance = balance + amt;
     }
 
     //method to withdraw money  
     public void withdrawal() {
-        long amt;
+        double amt;
         System.out.println("Enter the amount you want to withdraw: ");
-        amt = sc.nextLong();
+        amt = sc.nextDouble();
         if (balance >= amt) {
             balance = balance - amt;
             System.out.println("Balance after withdrawal: " + balance);
@@ -74,8 +74,8 @@ public class Bank {
         int ch;
         do {
             System.out.println("\n ***Banking System Application***");
-            System.out.println("1. Display all account details \n 2. Search by Account number");
-            System.out.println("\n 3. Deposit the amount \n 4. Withdraw the amount \n 5.Exit ");
+            System.out.println("1. Display all account details \n2. Search by Account number");
+            System.out.println("\n3. Deposit the amount \n4. Withdraw the amount \n5.Exit ");
             System.out.println("Enter your choice: ");
             ch = sc.nextInt();
             switch (ch) {
