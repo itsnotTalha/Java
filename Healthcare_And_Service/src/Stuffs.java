@@ -1,7 +1,6 @@
 import java.util.Random;
-    public class Stuffs implements Hospital{
-        private String name;
-        private String gender;
+    public class Stuffs extends Storage implements Hospital{
+
         private String serial;
         public void setSl()
         {
@@ -14,35 +13,48 @@ import java.util.Random;
 
         public String getGender()
         {
-            return gender;
+            return sGender;
         }
         public void setGender(String gender)
         {
-            this.gender=gender;
+            sGender=gender;
         }
         public String getName()
         {
-            return name;
+            return sName;
         }
         public void setName(String name)
         {
-            this.name=name;
+            sName=name;
         }
         public void getDetails()
         {
-            System.out.println("Name: "+name);
-            System.out.println("Gender: "+gender);
+            System.out.println("Stuff Name: "+sName);
+            System.out.println("Gender: "+sGender);
             System.out.println("Serial: "+getSerial());
+            System.out.println();
+        }
+         void assignG(){
+            switch(new Random().nextInt(2)){
+                case 0:
+                    sGender = "Male";
+                    break;
+                case 1:
+                    sGender = "Female";
+                    break;
+                default:
+                    sGender = "Maybe gay";
+            }
         }
         Stuffs()
         {
             setSl();
 
         }
-        Stuffs(String name,String gender)
+        Stuffs(String name)
         {
             setSl();
-            this.name=name;
-            this.gender=gender;
+            assignG();
+            sName=name;
         }
     }

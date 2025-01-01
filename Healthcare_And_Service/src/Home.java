@@ -2,42 +2,45 @@ import java.util.Scanner;
 
 public class Home extends Storage {
     //This will the Homepage containing login and signup
-    Scanner scan = new Scanner(System.in);
-    public String name;
-    public int age;
+    static Scanner scan = new Scanner(System.in);
 
-
-    public boolean sign_up(){
-        System.out.print("Enter your name: ");
-        name= scan.nextLine();
-        System.out.print("Enter your age: ");
-        age= scan.nextInt();
-        System.out.print("Enter your ID: ");
-        setUser_ID(scan.next());
-        System.out.print("Enter your Password: ");
-        setPassword(scan.next());
-        if(getPassword().length()<5){
-        return false;
-        }else{
-        return true;
-        }
+    static String Name, Age, Gender;
+    private static String tempPass, tempID;
+    public static String getTempPass(){
+        return tempPass;
     }
 
-    public boolean login(){
-        String tempPass, tempID;
-        System.out.print("Enter your User ID: ");
-        tempID = scan.next();
-        System.out.print("Enter your Password: ");
-        tempPass = scan.next();
-        if(tempID.equals(getUser_ID())){
-            if(tempPass.equals(getPassword())){
-                return true;
-            }else{
-                return false;
-            }
-        }else{
-            return false;
+    public static String getTempID() {
+        return tempID;
+    }
+
+    public static void sign_up(){
+        System.out.println("---REGISTRATION FORM---");
+        System.out.print("Enter your name: ");
+        Name= scan.nextLine();
+        System.out.print("Enter your age: ");
+        Age = scan.nextLine();
+        System.out.print("Select your Gender: \n[1] Male\t[2] Female\t[3] Helicopter\n : ");
+        int genderChoice = scan.nextInt();  // Read the gender choice
+        scan.nextLine();
+        switch (genderChoice){
+            case 1 :
+                Gender = "Male";
+                break;
+            case 2:
+                Gender = "Female";
+                break;
+            default:
+                Gender = null;
         }
+
+    }
+    public static void login(){
+
+        System.out.print("Enter your User ID: ");
+        tempID = Home.scan.nextLine();
+        System.out.print("Enter your Password: ");
+        tempPass = Home.scan.nextLine();
     }
 
 }

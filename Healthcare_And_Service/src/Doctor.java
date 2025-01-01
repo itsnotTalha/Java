@@ -14,9 +14,10 @@ public class Doctor extends Storage implements Hospital{
     }
 
     public void getDetails(){
-        System.out.println("Doctor name: "+dName);
+        System.out.println("Doctor's name: "+dName);
         System.out.println("Degree: "+dDegree);
         System.out.println("Serial number: "+pSerial);
+        System.out.println();
     }
     public void getPdetails(Patient patient){
         patient.getDetails();
