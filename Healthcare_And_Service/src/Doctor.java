@@ -10,16 +10,13 @@ public class Doctor extends Storage implements Hospital{
     }
 
     public void setSl() {
-        pSerial = sl+ new Random().nextInt(999);
+        dSerial = sl+ new Random().nextInt(999);
     }
 
     public void getDetails(){
         System.out.println("Doctor's name: "+dName);
         System.out.println("Degree: "+dDegree);
-        System.out.println("Serial number: "+pSerial);
+        System.out.println("Serial number: "+dSerial);
         System.out.println();
-    }
-    public void getPdetails(Patient patient){
-        patient.getDetails();
     }
 }

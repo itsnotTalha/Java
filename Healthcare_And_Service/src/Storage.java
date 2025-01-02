@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Storage {
         public String pName, pAge, pGender, pSerial;
         public String sName, sGender;
-        public String dName, dDegree;
+        public String dName, dDegree, dSerial;
         private  String password, user_ID;
 
         public  void setUser_ID(String uID) {

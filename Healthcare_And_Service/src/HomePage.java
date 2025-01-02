@@ -19,27 +19,32 @@
 
             // Initialize Stuffs
             for (int i = 0; i < list2.length; i++) {
-                list2[i] = new Stuffs(genRand(3)); // Assuming Stuffs constructor takes a String
+                list2[i] = new Stuffs(genRand(3));
             }
 
-            // Create the Scanner object once, before entering the loop
             Patient currentPatient = null;
-            System.out.println("\t\tWelcome to UIU Healthcare and Service");
+            System.out.println("Welcome to UIU Healthcare & Service");
 
             while (wheel) {
                 int choice, temp;
+                System.out.println("------------------------------");
+                System.out.println("-------------Home-------------");
+                System.out.println("------------------------------");
                 System.out.println("[1] Patient");
                 System.out.println("[2] Doctor");
                 System.out.println("[3] Staff");
+                System.out.println("[4] Population");
                 System.out.println("[0] Quit");
                 System.out.print("Enter your choice: ");
                 choice = scan.nextInt();
 
                 // Consume the remaining newline character after nextInt()
-                scan.nextLine(); // This is necessary to handle the input correctly
+                scan.nextLine();
 
                 switch (choice) {
                     case 1:
+                        System.out.println("------------------------------");
+                        System.out.println("------------------------------");
                         System.out.println("[1] Registration");
                         System.out.println("[2] Sign in");
                         System.out.print("Enter your choice: ");
@@ -73,7 +78,9 @@
 
 
                                 if (loggedIn) {
+                                    System.out.println("------------------------------");
                                     System.out.println("Welcome back " + currentPatient.pName);
+                                    System.out.println("------------------------------");
                                     System.out.println("[1] Get Medical Report");
                                     System.out.println("[2] Current Health status");
                                     System.out.println("[3] Change ID & Password");
@@ -120,6 +127,14 @@
                         for (Storage x : list2) {
                             ((Stuffs) x).getDetails();
                         }
+                        break;
+                    case 4:
+                        System.out.println("------------------------------");
+                        System.out.println("Total Population of UIUHOSPITAL");
+                        System.out.println("------------------------------");
+                        System.out.println("Patient: "+c);
+                        System.out.println("Doctor:  "+list.length);
+                        System.out.println("Staff:   "+list2.length);
                         break;
                     case 0:
                         System.out.println("Quitting...");

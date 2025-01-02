@@ -11,22 +11,6 @@ import java.util.Random;
             return serial;
         }
 
-        public String getGender()
-        {
-            return sGender;
-        }
-        public void setGender(String gender)
-        {
-            sGender=gender;
-        }
-        public String getName()
-        {
-            return sName;
-        }
-        public void setName(String name)
-        {
-            sName=name;
-        }
         public void getDetails()
         {
             System.out.println("Stuff Name: "+sName);
@@ -34,7 +18,7 @@ import java.util.Random;
             System.out.println("Serial: "+getSerial());
             System.out.println();
         }
-         void assignG(){
+         void assignGender(){
             switch(new Random().nextInt(2)){
                 case 0:
                     sGender = "Male";
@@ -43,7 +27,7 @@ import java.util.Random;
                     sGender = "Female";
                     break;
                 default:
-                    sGender = "Maybe gay";
+                    sGender = "Sick";
             }
         }
         Stuffs()
@@ -54,7 +38,7 @@ import java.util.Random;
         Stuffs(String name)
         {
             setSl();
-            assignG();
+            assignGender();
             sName=name;
         }
     }
