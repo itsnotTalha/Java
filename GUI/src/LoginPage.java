@@ -1,14 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Arrays;
+
 public class LoginPage implements ActionListener {
-    LoginPage(){
-        JFrame frame = new JFrame("MY FRAME");
-        frame.setBounds(100,50,420,420);
         JButton login = new JButton("Login");
         JButton reset = new JButton("Reset");
         JTextField t1 = new JTextField();
         JPasswordField p1 = new JPasswordField();
+        String userId,password;
+    LoginPage(){
+        JFrame frame = new JFrame("MY FRAME");
+        frame.setBounds(100,50,420,420);
         JLabel username = new JLabel("Username");
         JLabel pass = new JLabel("Password");
 
@@ -30,10 +33,23 @@ public class LoginPage implements ActionListener {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         login.addActionListener(this);
+        reset.addActionListener(this);
         login.setFocusable(false);
     }
     public void actionPerformed(ActionEvent e) {
-
+        if(login == e.getSource()){
+            userId=t1.getText();
+            password = Arrays.toString(p1.getPassword());
+            JFrame frame1 = new JFrame();
+            frame1.setSize(420,420);
+            frame1.add(new JTextField("Login completed Successfully"));
+            frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame1.setVisible(true);
+        }
+        if(reset==e.getSource()){
+            t1.setText("");
+            p1.setText("");
+        }
     }
 
     public static void main(String[] args) {
