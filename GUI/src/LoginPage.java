@@ -55,6 +55,7 @@ public class LoginPage implements ActionListener {
         JLabel l1 = new JLabel("Name: ");
         JLabel l2 = new JLabel("Age: ");
         JLabel l3 = new JLabel("Gender: ");
+        JLabel l4 = new JLabel("Gender: ");
 
         p1.add(l1);
         p1.add(new JTextField());
