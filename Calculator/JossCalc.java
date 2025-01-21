@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class JossCalc {
-    JFrame frame = new JFrame();
+    JFrame frame = new JFrame("JossCalc");
     String  str1, str2;
     double num1=0.0,num2=0.0;
     Object temp;
@@ -22,12 +22,16 @@ public class JossCalc {
         t1.setFont(new Font("Arial", Font.BOLD, 20));
         TextField t2 = new TextField("0.0");
         t2.setSize(263,40);
-        t2.setBounds(0,75,263,45);
-
+        t2.setBounds(0,75,196,45);
         t2.setFont(new Font("Arial", Font.BOLD, 20));
+
+        JButton clr = new JButton("CLR");
+        clr.setBounds(205,75,58,45);
+
 
         p1.add(t1);
         p1.add(t2);
+        p1.add(clr);
         JPanel p2 = new JPanel();
         p2.setLayout(new GridLayout(4,4,10,10));
         p2.setSize(210,290);
@@ -174,16 +178,21 @@ public class JossCalc {
         s4.setFont(new Font("Arial", Font.BOLD, 20));
         s4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                num1=1.1;
+                //num1=1.1;
                 temp= e.getSource();
                 str1=t2.getText();
+                if (num1!=0){
                 num1 = Double.parseDouble(str1);
-                try {
-                    num1 /= Double.parseDouble(t1.getText());
+                    try {
+                        num1 /= Double.parseDouble(t1.getText());
+                    }
+                    catch (NumberFormatException ef){
+                        num1=Double.parseDouble(t1.getText());
+                    }
+                }else{
+                    num1 = Double.parseDouble(t1.getText());
                 }
-                catch (NumberFormatException ef){
-                    num1/=1.0;
-                }
+
                 t1.setText("");
                 t2.setText(num1+"");
             }
@@ -238,8 +247,18 @@ public class JossCalc {
                 str1=null;
             }
         });
-        JButton ac = new JButton("AC");
+        JButton ac = new JButton(".");
         ac.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                t1.setText(t1.getText() + ".");
+            }
+        });
+        ac.setFont(new Font("Arial", Font.BOLD,20));
+
+        clr.setFont(new Font("Arial", Font.BOLD,12));
+        clr.setBackground(Color.RED);
+        clr.setForeground(Color.BLACK);
+        clr.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 t1.setText("");
                 num1=0.0;
@@ -264,6 +283,7 @@ public class JossCalc {
         s4.setFocusable(false);
         r1.setFocusable(false);
         ac.setFocusable(false);
+        clr.setFocusable(false);
 
         p2.add(n1);
         p2.add(n2);
@@ -282,8 +302,10 @@ public class JossCalc {
         p2.add(r1);
         p2.add(s4);
         p2.setBackground(Color.BLACK);
+
         frame.add(p1);
         frame.add(p2);
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 
