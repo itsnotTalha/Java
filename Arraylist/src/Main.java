@@ -9,7 +9,7 @@ public class Main {
         PrintWriter pw;
         FileWriter fw;
         try {
-            pw = new PrintWriter(new File("Output.txt"));
+            pw = new PrintWriter("Output.txt");
             //fw = new FileWriter(new File("Output.txt"),true);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -28,7 +28,7 @@ public class Main {
         a2.add(new Person("Jubayer",60));
         a2.add(new Person("Talha Jubayer",90));
 
-        a1.sort(Comparator.comparing(Integer::intValue));
+        a1.sort(Comparator.comparing(Integer::intValue).reversed());
         System.out.println(a1);
 
         a2.sort(cm1);
@@ -48,9 +48,9 @@ pw.close();
     public static Comparator<Person> cm1 = new Comparator<Person>() {
         public int compare(Person o1, Person o2) {
             int a;
-            if(o1.age> o2.age){
+            if(o1.age< o2.age){
                 a=1;
-            } else if (o1.age< o2.age) {
+            } else if (o1.age> o2.age) {
                 a=-1;
             }else {
                 a=0;
