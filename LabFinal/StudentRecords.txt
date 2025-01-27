@@ -1,0 +1,15 @@
+Name: Talha
+Roll: 100
+Marks: 90.0, 80.0, 100.0
+Average: 90.0
+Grade: A
+Name: Jubayer
+Roll: 101
+Marks: 80.0, 68.0, 70.0
+Average: 72.66666666666667
+Grade: C
+Name: Muhit
+Roll: 101
+Marks: 100.0, 48.0, 87.0
+Average: 78.33333333333333
+Grade: C
