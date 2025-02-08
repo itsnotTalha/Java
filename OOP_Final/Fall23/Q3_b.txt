@@ -1,0 +1,73 @@
+i)
+max.addActionListener(new ActionListener(){
+public void actionPerformed(ActionEvent e){
+    int max,num1,num2,num3;
+    try{
+    num1=Integer.parseInt(n1.getText());
+    num2=Integer.parseInt(n2.getText());
+    num3=Integer.parseInt(n3.getText());
+    max=num1;
+    if(num2>max){
+    max=num2;
+    }
+    if(num3>max){
+    max=num3;
+    }
+    result.setText(max+"");
+   }
+   catch(NumberFormatException ex){
+           sout("Invalid input");
+      }
+}
+});
+
+ii)
+min.addActionListener(new ActionListener(){
+public void actionPerformed(ActionEvent e){
+    int min,num1,num2,num3;
+    try{
+    num1=Integer.parseInt(n1.getText());
+    num2=Integer.parseInt(n2.getText());
+    num3=Integer.parseInt(n3.getText());
+    min=num1;
+    if(num2<min){
+    max=num2;
+    }
+    if(num3<min){
+    min=num3;
+    }
+    result.setText(min+"");
+   }
+   catch(NumberFormatException ex){
+        sout("Invalid input");
+   }
+}
+});
+
+iii)
+avg.addActionListener(new ActionListener(){
+public void actionPerformed(ActionEvent e){
+    int num1,num2,num3;
+    double avg;
+    try{
+    num1=Integer.parseInt(n1.getText());
+    num2=Integer.parseInt(n2.getText());
+    num3=Integer.parseInt(n3.getText());
+    avg = (num1+num2+num3)/3.0;
+    result.setText(avg+"");
+   }
+   catch(NumberFormatException ex){
+        sout("Invalid input");
+   }
+}
+});
+
+iv)
+clr.addActionListener(new ActionListener(){
+public void actionPerformed(ActionEvent e){
+    n1.setText("");
+    n2.setText("");
+    n3.setText("");
+    result.setText("Result");
+}
+});
