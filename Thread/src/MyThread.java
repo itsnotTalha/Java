@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 public class MyThread extends Thread{
     public int sum=0, a, b;
     public MyThread(int a, int b){

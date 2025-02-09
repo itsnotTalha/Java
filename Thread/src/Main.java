@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Main {
     public static void main(String[] args) {
@@ -36,8 +37,21 @@ public class Main {
         a1.add(m6);
         a1.add(m7);
 
+        a1.sort(cm1);
         for(MyThread x : a1){
             System.out.println(x.sum);
         }
     }
+    public static Comparator<MyThread> cm1 =new Comparator<MyThread>(){
+
+        public int compare(MyThread m1, MyThread m2) {
+            if(m1.sum<m2.sum){
+                return -1;
+            }else if(m1.sum>m2.sum){
+                return 1;
+            }else{
+                return 0;
+            }
+        }
+    };
 }
