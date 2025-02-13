@@ -49,9 +49,9 @@ pw.close();
         public int compare(Person o1, Person o2) {
             int a;
             if(o1.age< o2.age){
-                a=1;
-            } else if (o1.age> o2.age) {
                 a=-1;
+            } else if (o1.age> o2.age) {
+                a=1;
             }else {
                 a=0;
             }
