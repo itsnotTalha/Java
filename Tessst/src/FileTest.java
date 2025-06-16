@@ -1,8 +1,5 @@
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class FileTest {
 
@@ -16,41 +13,28 @@ public class FileTest {
         ) {
 
             int minNumber = Integer.MAX_VALUE;
-            boolean foundNumber = false;
 
             while (fileReader.hasNext()) {
                 try {
                     if (fileReader.hasNextInt()) {
                         int currentNumber = fileReader.nextInt();
-                        foundNumber = true;
-
                         if (currentNumber < minNumber) {
                             minNumber = currentNumber;
                         }
                     } else {
-                        String nonIntToken = fileReader.next();
-                        System.out.println("Skipping non-integer data: '" + nonIntToken + "'");
+                        String s = fileReader.next();
                     }
                 } catch (InputMismatchException e) {
-                    System.out.println("Error reading an integer (InputMismatchException): " + e.getMessage());
+                    System.out.println("InputMismatchException");
                     fileReader.next();
                 }
             }
-
-            if (foundNumber) {
-                fileWriter.println(minNumber);
-                System.out.println("Successfully found the minimum number and wrote to output.txt.");
-                System.out.println("The minimum number found is: " + minNumber);
-            } else {
-                System.out.println("No integers were found in input.txt. output.txt will be empty.");
-            }
-
+            fileWriter.println(minNumber);
+            fileWriter.close();
         } catch (IOException e) {
             System.out.println("An I/O error occurred: " + e.getMessage());
-            e.printStackTrace();
         } catch (Exception e) {
             System.out.println("An unexpected error occurred: " + e.getMessage());
-            e.printStackTrace();
         }
     }
 }
