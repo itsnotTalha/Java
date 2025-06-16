@@ -1,0 +1,6 @@
+hello
+10
+world
+5
+test
+20
